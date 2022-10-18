@@ -20,9 +20,13 @@ app.get('/', (req: Request, res: Response) => {
 
 app.get('/hello', (req: Request, res: Response) => {
     // Send Hello World
-    res.send('Welcome to GET route: Hello World');
+    res.json({"data":{"message":`Hola, ${req.params.name}`}});
 });
 
+app.get('/goodbye', (req, res)=>{
+    res.status(200)
+    res.json({"data":{"message":"Goodbye World!"}})
+})
 // Execute App
 
 app.listen(port, () => {
